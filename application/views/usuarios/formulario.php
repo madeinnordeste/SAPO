@@ -1,5 +1,12 @@
 <h1>Formulário de Usuário</h1>
-<?=form::open('usuarios/salvar', array('id' => 'form_usuario'), array('id' => $usuario->id))?>
+<?php
+	//define a action do formulario
+	if(!$form_action){
+		$form_action = 'usuarios/salvar';
+	}
+
+?>
+<?=form::open($form_action, array('id' => 'form_usuario'), array('id' => $usuario->id))?>
 <div class="grid_4 alpha">
 	Nome:<br>
 	<?=form::input('nome', $usuario->nome, 'class="validate[required]"')?>

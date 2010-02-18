@@ -78,7 +78,7 @@ class objects_core {
 			//remove os metodos privados
 			foreach($methods as $method){
 				
-				if(substr($method, 0, 1) != '_'){
+				if((substr($method, 0, 1) != '_') && ($method != 'index')){
 					
 					$methods_list[strtolower($controller).'/'.$method] = $method;
 					

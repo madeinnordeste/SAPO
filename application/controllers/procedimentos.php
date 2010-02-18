@@ -23,7 +23,8 @@ class Procedimentos_Controller extends Template_Controller {
 	public function formulario($id = FALSE, $processo_id = FALSE){		
 		$procedimento = ORM::Factory('procedimento', $id);
 		$advogados = ORM::Factory('advogado')->select_list('id', 'nome');
-			$advogados = array_merge(array(0 => 'Não definido'), $advogados);
+			$advogados[0] = 'Não Definido';
+			//$advogados = array_merge(array(0 => 'Não definido'), $advogados);
 		$tipo_procedimentos = ORM::Factory('grupo_procedimento')->select_list_with_childrens();
 		$processo = ORM::Factory('processo', $processo_id);
 		

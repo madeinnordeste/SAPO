@@ -29,8 +29,18 @@ class Usuarios_Controller extends Template_Controller {
 		$this->template->content= $view;
 	}
 	
+	public function meu_cadastro(){
+		
+		//Alteracoes do formulario do usuario		
+		if(isset($_POST['id'])){			
+			$this->salvar('usuarios/meu_cadastro');			
+		}else{
+			$usuario = Session::instance()->get('usuario');		
+			$this->formulario($usuario->id, 'usuarios/meu_cadastro');
+		}
+	}
 	
-	public function formulario($id = FALSE){
+	public function formulario($id = FALSE, $form_action = FALSE){
 		$usuario = ORM::Factory('usuario', $id);
 		
 		$grupos = ORM::Factory('grupo_acesso')->select_list('id', 'nome');
@@ -38,12 +48,13 @@ class Usuarios_Controller extends Template_Controller {
 		$view = View::Factory('usuarios/formulario');
 		$view->set('usuario', $usuario);
 		$view->set('grupos', $grupos);
+		$view->set('form_action', $form_action);
 		
 		$this->template->content= $view;
 		
 	}
 	
-	public function salvar(){
+	public function salvar($destino = FALSE){
 		
 		$usuario = ORM::Factory('usuario', $_POST['id']);
 		
@@ -63,8 +74,12 @@ class Usuarios_Controller extends Template_Controller {
 		$usuario = objects::match_and_save_attributes($usuario, $_POST, TRUE);	
 		
 		html::flash_message('Dados do usuario <b>'.$usuario->nome.'</b> salvos com sucesso!', 'success');
+		
+		if(!$destino){
+			$destino = 'usuarios/lista/';
+		}
 					
-		url::redirect('usuarios/lista/');		
+		url::redirect($destino);		
 		
 				
 	}

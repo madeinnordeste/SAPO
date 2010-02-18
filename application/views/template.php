@@ -43,7 +43,18 @@
 					<?=html::image('static/images/logo.png')?>
 				</div>		
 				<div id="header_options" class="grid_6 omega">
-					&nbsp;
+					<div class="box">
+						<?php
+						
+							echo html::image('static/images/user.png');
+						
+							$usuario = Session::instance()->get('usuario');
+							echo 'Bem vindo <b>'.$usuario->nome.'</b><br>';
+							echo html::anchor('usuarios/meu_cadastro', '[ Meu cadastro ]');
+							echo '  ';
+							echo html::anchor('autenticacoes/logoff', '[ Sair ]');					
+						?>
+					</div>
 				</div>
 			</div>
 			<div class="clear">&nbsp;</div>

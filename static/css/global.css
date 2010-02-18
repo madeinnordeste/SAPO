@@ -29,6 +29,25 @@ h1 a, h2 a{
 	height:100px;
 	background:url('../images/bg_header.JPG');
 }
+
+#header_options{
+	color:#FFFFFF;
+
+}
+	#header_options div.box{
+		width:300px;
+		height:60px;
+		padding:5px;
+		float:right;
+		margin-top:20px;
+		background:url('../images/bg-user-info.png') no-repeat;
+	}
+	#header_options div.box img{
+		float:left;
+	}
+	#header_options div.box a{
+		color:#FFFFFF;
+	}
 /* FOOTER */
 #footer{
 	margin-top:10px;
