@@ -19,8 +19,15 @@
 			
 			$action_links = html::anchor('usuarios/formulario/'.$usuario->id, 'Editar', array('class' => 'edit'));
 			
-			$title = 'Tem certeza que deseja excluir '.$usuario->nome.' ?';
-			$action_links.= html::anchor('usuarios/excluir/'.$usuario->id, 'Excluir', array('class' => 'delete', 'title' => $title));
+			//usuario root
+			if($usuario->id == 1){				
+				$title = 'O usuário '.$usuario->nome.' não pode ser excluído';
+				$action_links.= html::anchor('#', 'Excluir', array('class' => 'delete', 'title' => $title));								
+			}else{
+				$title = 'Tem certeza que deseja excluir '.$usuario->nome.' ?';
+				$action_links.= html::anchor('usuarios/excluir/'.$usuario->id, 'Excluir', array('class' => 'delete', 'title' => $title));
+			}
+			
 			$col[] = $action_links;
 			
 			
@@ -32,9 +39,14 @@
 	
 	}else{
 		
-		$texto = 'Não usuários registrados.';			
+		$texto = 'Não existem usuários registrados.';			
 		echo html::message($texto, FALSE);
 		
 	}
+	
+	
+	
+	
+	
 
 ?>

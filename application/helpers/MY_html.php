@@ -143,9 +143,12 @@ class html extends html_Core {
 		$html_code.="</script>\n";
 		
 		
+		/*
 		$this->session = Session::instance();
-
 		$this->session->set_flash('user_message', $html_code);
+		*/
+		Session::instance()->set_flash('user_message', $html_code);
+		
 		
 	}
 	

@@ -1,0 +1,63 @@
+body{
+	background-color:#ffffff;
+	margin:0px 0px 0px 0px;
+	background:url('../images/bg-autenticacoes.png');
+	font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+}
+
+#formulario{
+	background-color:#ffffff;
+	width:400px;
+	height:280px;
+	padding:5px 5px 5px 5px;
+	border:1px solid #cccccc;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-200px;
+	margin-top:-140px;
+
+}
+	#formulario > div#header{
+		background-color:#183579;
+		margin-bottom:10px;		
+	}
+
+input{
+	border:1px solid #CCCCCC;
+	background-color:#F0F0F0;
+	width:100%;
+	-moz-border-radius-bottomleft:4px;
+	-moz-border-radius-bottomright:4px;
+	-moz-border-radius-topleft:4px;
+	-moz-border-radius-topright:4px;	
+	font-size:14px;
+	padding:5px 5px 5px 5px;
+	margin-bottom:10px;
+}
+input[type=submit]{
+	width:50%;
+	float:right;
+	margin-top:15px;
+}
+/* MESSAGE  */
+div.message{
+	text-align:center;
+	padding:25px 25px 25px 25px;
+	margin:20px 20px 20px 20px;
+}
+	div.message h1{
+		border-bottom:none;
+	}
+	div.erro{
+		border:1px solid #FFDAFA;
+		background-color:#FFE9FE;
+	}
+	div.info{
+		border:1px solid #B1D7E4;
+		background-color:#C7F4FF;
+	}
+	div.success{
+		border:1px solid #B1D7E4;
+		background-color:#C5FFEC;
+	}

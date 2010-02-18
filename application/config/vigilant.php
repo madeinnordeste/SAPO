@@ -2,4 +2,5 @@
 
 
 $config['controllers_exception'] = array('autenticacoes', 
-														'mensagens');
+														'mensagens',
+														'home');

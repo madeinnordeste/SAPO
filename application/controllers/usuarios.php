@@ -74,11 +74,17 @@ class Usuarios_Controller extends Template_Controller {
 		
 		$usuario = ORM::Factory('usuario', $id);
 		
-		$nome = $usuario->nome;
-		
-		$usuario->delete();			
+		//se exclui usuarios q nao seja o root
+		if($id > 1){
 			
-		html::flash_message('Usuário <b>'.$nome.'</b> excluído com sucesso!', 'success');
+			$nome = $usuario->nome;
+
+			$usuario->delete();			
+
+			html::flash_message('Usuário <b>'.$nome.'</b> excluído com sucesso!', 'success');
+			
+		}
+		
 			
 		url::redirect('usuarios/');
 		
