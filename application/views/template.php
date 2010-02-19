@@ -31,7 +31,8 @@
 			'static/plugins/maskedinput/jquery.maskedinput-1.2.2',
 			'static/plugins/date-picker-v4/language/pt_BR',
 			'static/plugins/date-picker-v4/js/datepicker',
-			'static/plugins/jquery-timer/jquery.timers'
+			'static/plugins/jquery-timer/jquery.timers',
+			'static/plugins/jquery.cookie/jquery.cookie',
 		), FALSE);
 		
 		?>
@@ -72,6 +73,31 @@
 					<li><?=html::anchor('grupo_acessos', 'Grupos de Acessos')?></li>	
 					<li><?=html::anchor('usuarios', 'Usuários')?></li>				
 				</ul>
+				<script type="text/javascript">
+					$(document).bind('ready', function(){
+						$('#menu a').click(function(){
+							var d = $(this).attr('href');							
+							var c = $(this).text();
+							
+							$.cookie("menu", c);
+							
+							return true;
+						});
+						
+						//seleciona o menu
+						var m = $.cookie("menu");						
+						if(m){														
+							$('#menu a:contains('+m+')').addClass('ativo');
+						}else{
+							$('#menu a:first').addClass('ativo');
+						}
+						
+						
+						
+						
+						
+					});
+				</script>
 			</div>
 			<div class="clear">&nbsp;</div>
 			
