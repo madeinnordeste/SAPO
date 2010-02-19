@@ -36,7 +36,9 @@
 						$texto.='<br>';
 						$texto.= $procedimento->hora ? $procedimento->hora : '---';
 						
-						echo html::anchor('processos/formulario/'.$procedimento->processo_id, $texto);
+						echo html::anchor('processos/formulario/'.$procedimento->processo_id, 
+												$texto,
+												array('title' => 'Ver informações do processo: '.$procedimento->processo->numero));
 						
 					echo '</div>';
 					
@@ -86,9 +88,9 @@
 	<h2>Notícias STJ</h2>
 	<?php
 		
-		$num = 4;
+		$num = Kohana::config('application.rss_count');
 		
-		$feed = feed::parse('http://www.stj.gov.br/portal_stj/rss/index.wsp');
+		$feed = feed::parse(Kohana::config('application.rss'));
 		
 		//echo Kohana::debug($feed);
 		
@@ -96,8 +98,8 @@
 		
 		foreach($feed as $news){			
 		
-			echo '<p>';			
-				$text = '<b>'.$news['title'].'</b><br>'.$news['description'];
+			echo '<p class="noticia">';			
+				$text = '<b>'.$news['title'].'</b>'; //'<br>'.$news['description'];
 				echo html::anchor($news['link'], $text, array('target' => '_blank'));			
 			echo '</p>';
 			

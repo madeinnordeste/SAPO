@@ -259,3 +259,9 @@ div.infobox{
 		background-color:#D5F8E8;
 		color:#000000;
 	}
+	
+
+p.noticia{
+	padding-left:20px;
+	background:url(../images/icons/page_text.gif) no-repeat center left;
+}
