@@ -14,29 +14,11 @@ class Home_Controller extends Template_Controller {
  	public function index()
 	{
 		
-		//procedimentos
-		$procedimentos = array();
-		$proc_finalizados = array();
-		$advogados = ORM::factory('advogado')->find_all();
-		foreach($advogados as $advogado){
-			//procedimentos finalizados
-			$total = $advogado->procedimentos_finalizados()->count();
-			if($total){
-				$proc_finalizados[$total] = $advogado->nome;	
-			}
-			
-			//procedimentos
-			$total = $advogado->procedimentos->count();
-			if($total){
-				$procedimentos[$total] = $advogado->nome;	
-			}
-			
-		}
+		$procedimentos = ORM::Factory('procedimento')->lista_semana();
 		
 		
 		$view = View::Factory('home/index');
 		$view->set('procedimentos', $procedimentos);
-		$view->set('proc_finalizados', $proc_finalizados);
 		
 		$this->template->content= $view;
 		

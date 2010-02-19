@@ -6,4 +6,24 @@ class Procedimento_Model extends ORM {
 	
 	protected $belongs_to = array('tipo_procedimento', 'processo', 'advogado');	
 	
+	
+	public function lista_semana(){
+		
+		$semana = date::week_days();
+		//echo Kohana::debug($semana);
+		
+		$lista = array();
+		
+		foreach($semana as $dia){
+			
+			$lista[$dia] = ORM::Factory('procedimento')->where('data', $dia)->find_all();
+			
+		
+		}
+		
+		return $lista;
+		
+		
+	}
+	
 }

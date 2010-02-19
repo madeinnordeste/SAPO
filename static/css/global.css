@@ -213,3 +213,49 @@ p.pagination{
 	p.pagination a{
 		color:#000000;
 	}
+
+div.infobox{
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:20px;
+	border-bottom:1px dashed #e8e8e8;
+	background:url(../images/icons/folder.gif) no-repeat center left;
+}
+
+/*dashboard_calendar*/
+#dashboard_calendar{
+	background:url(../images/bg-dashboard_calendar.png);	
+	margin-bottom:10px;
+	
+}
+
+#dashboard_calendar div{
+	text-align:center;
+}
+	#dashboard_calendar > div > div.title{
+		border-bottom:1px dashed #e8e8e8;
+		font-weight:bold;
+		padding-top:5px;
+		padding-bottom:5px;
+		margin-bottom:10px;
+	}
+		#dashboard_calendar > div > div.title span{
+			font-size:10px;
+			font-weight:normal;
+		}
+	
+	#dashboard_calendar > div > div.procedimento{
+		padding-top:5px;
+		padding-bottom:5px;
+		font-size:10px;
+		font-family:verdana;
+		margin-bottom:10px;
+	}
+	#dashboard_calendar > div > div.aberto{
+		background-color:#F8DFEA;
+		color:#000000;
+	}
+	#dashboard_calendar > div > div.realizado{
+		background-color:#D5F8E8;
+		color:#000000;
+	}
