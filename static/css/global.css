@@ -1,6 +1,8 @@
 
 body{
 		background:url('../images/bg.png') repeat-x;
+		width:100%;
+		height:100%;
 }
 
 
@@ -23,6 +25,14 @@ h1 a, h2 a{
 	padding-left:10px;
 }
 
+/*prelaod*/
+#preload{
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:9999;
+	background:url('../images/bg-preload.png');
+}
 
 /* HEADER */
 #header{
@@ -74,11 +84,18 @@ h1 a, h2 a{
 				padding:10px 7px 10px 7px;
 				text-decoration:none;
 				color:#000000;
+				border-bottom:1px solid #dfdfdf;
 			}
 			
-			#menu ul li a:hover, #menu ul li a.ativo{
-				background-color:#d6d6d6;
-				color:#000000;
+			#menu ul li a:hover{
+				background-color:#fcfcfc;
+			}
+			#menu ul li a.ativo{
+				
+				background-color:#FFFFFF;
+				color:#183579;
+				border:1px solid #dfdfdf;
+				border-bottom:1px solid #FFFFFF;
 			}
 
 /* FORMS */

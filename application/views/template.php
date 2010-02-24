@@ -37,7 +37,7 @@
 		
 		?>
 	</head>
-	<body>
+	<body>		
 		<div class="container_12">		
 			<div id="header" class="grid_12">
 				<div id="logo" class="grid_6 alpha">
@@ -75,32 +75,21 @@
 				</ul>
 				<script type="text/javascript">
 					$(document).bind('ready', function(){
-						$('#menu a').click(function(){
-							var d = $(this).attr('href');							
-							var c = $(this).text();
-							
-							$.cookie("menu", c);
-							
-							return true;
-						});
-						
-						//seleciona o menu
-						var m = $.cookie("menu");						
-						if(m){														
-							$('#menu a:contains('+m+')').addClass('ativo');
-						}else{
-							$('#menu a:first').addClass('ativo');
-						}
-						
-						
-						
-						
+						//menu
+						<?php
+							$controlador = Router::$controller;
+							if($controlador == 'orgaos'){
+								$controlador = 'esferas';
+							}						
+						?>
+						var m = "<?=Kohana::config('config.site_domain').$controlador?>";	
+						var sel = '#menu a[href$="'+m+'"]';
+						$(sel).addClass('ativo');
 						
 					});
-				</script>
+				</script>				
 			</div>
-			<div class="clear">&nbsp;</div>
-			
+			<div class="clear">&nbsp;</div>			
 			<?php
 				//flash message
 				if(isset($_SESSION['user_message'])){					
@@ -110,9 +99,6 @@
 				}
 			
 			?>
-			
-			
-			
 			<div id="content" class="grid_12">
 				<?=$content?>		
 			</div>
