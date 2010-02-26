@@ -26,7 +26,7 @@ class Autenticacoes_Controller extends Controller {
 		if($usuario->id){
 			
 			Session::instance()->set('usuario', $usuario);
-			url::redirect(Kohana::config('Routes._default'));	
+			url::redirect('home');	
 			
 		}else{
 			
