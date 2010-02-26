@@ -22,4 +22,16 @@ class Esfera_Model extends ORM {
 		
 	}
 	
+	
+	public function total_processos(){
+		
+		$orgaos = $this->orgaos->select_list('id', 'id');
+		
+		$processos = ORM::Factory('processo')->in('orgao_id', $orgaos)->find_all();
+	
+		return $processos->count();
+		
+		
+	}
+	
 }

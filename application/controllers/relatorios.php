@@ -17,7 +17,12 @@ class Relatorios_Controller extends Template_Controller {
  	public function index()
 	{
 		
-		$txt = '<h1>Relatórios - Em desenvolvimento</h1>';
+		$labels = array();
+		$labels['processos_esfera'] = 'Gráfico de processos por Esfera';
+		$labels['processos_tempo'] = 'Processos / Tempo';
+		
+		
+		$txt = '<h1>Relatórios disponiveis</h1>';
 		// Get the methods that are only in this class and not the parent class.
 		$examples = array_diff
 		(
@@ -25,20 +30,20 @@ class Relatorios_Controller extends Template_Controller {
 			get_class_methods(get_parent_class($this))
 		);
 		sort($examples);
-		$txt.=  "<strong>Examples:</strong>\n";
+		
 		$txt.= "<ul>\n";
 		foreach ($examples as $method)
 		{
 			if ($method == __FUNCTION__)
 				continue;
-			$txt.='<li>'.html::anchor('relatorios/'.$method, $method)."</li>\n";
+			$txt.='<li>'.html::anchor('relatorios/'.$method, $labels[$method])."</li>\n";
 		}
 		$txt.="</ul>\n";
 		$this->template->content =	$txt;	
 		
 	}
 	
-	public function processos($procedimento_id = FALSE, $status = FALSE, $dias = FALSE, $pagina = 1){
+	public function processos_tempo($procedimento_id = FALSE, $status = FALSE, $dias = FALSE, $pagina = 1){
 		
 		
 		$tipo_procedimentos = ORM::Factory('grupo_procedimento')->select_list_with_childrens();
@@ -111,7 +116,7 @@ class Relatorios_Controller extends Template_Controller {
 		
 		
 		
-		$view = View::Factory('relatorios/processos');
+		$view = View::Factory('relatorios/processos_tempo');
 		$view->set('tipo_procedimentos', $tipo_procedimentos);
 		$view->set('procedimento_id', $procedimento_id);
 		$view->set('status', $status);
@@ -122,6 +127,34 @@ class Relatorios_Controller extends Template_Controller {
 		
 		
 		$this->template->content =	$view;	
+		
+	}
+	
+	public function processos_esfera(){
+		
+		$esferas = ORM::Factory('esfera')->find_all();
+		
+		$processos = array();
+		
+		$total_processos = 0;
+		
+		foreach($esferas as $esfera){
+			
+			$total = $esfera->total_processos();
+			
+			$total_processos+=$total;
+			
+			$processos[$esfera->nome] = $total;
+			
+		}
+		
+		
+		
+		
+		$view = View::Factory('relatorios/processos_esfera');
+		$view->set('processos', $processos);
+		$view->set('total_processos', $total_processos);	
+		$this->template->content =	$view;
 		
 	}
 	
