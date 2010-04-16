@@ -1,5 +1,12 @@
 Este arquivo é parte do programa SAPO
 
+
+Copyright (c) 2010 Luiz Alberto S. Ribeiro
+http://www.beto.euqueroserummacaco.com
+madeinnordeste at gmail dot com
+
+All rights reserved.
+
 SAPO é um software livre; você pode redistribui-lo e/ou 
 modifica-lo dentro dos termos da Licença Pública Geral GNU como 
 publicada pela Fundação do Software Livre (FSF); na versão 2 da 

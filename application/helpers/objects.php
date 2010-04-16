@@ -44,7 +44,7 @@ class objects_core {
 			
 			$controller = substr($name, 0, -4);
 			
-			if($controller){
+			if(($controller) && (substr($controller, 0, 1) != '.')){
 				$itens[] = 	ucfirst($controller.'_Controller');
 			}
 			
@@ -60,7 +60,6 @@ class objects_core {
 	public function get_controllers_with_methods(){
 		
 		$controllers = objects::get_controllers();
-		
 		
 		
 		$list = array();

@@ -39,8 +39,10 @@
 				$col[] = $procedimento->nome;				
 
 				
+				$title = 'Editar o tipo de procedimento: '.$procedimento->nome;
+				$action_links = html::anchor('tipo_procedimentos/formulario/'.$procedimento->id.'/'.$grupo->id, 'Editar', array('class' => 'edit', 'title' => $title));
 				$title = 'Tem certeza que deseja excluir '.$procedimento->nome.'?';
-				$action_links= html::anchor('tipo_procedimentos/excluir/'.$procedimento->id, 'Excluir', array('class' => 'delete', 'title' => $title));
+				$action_links.= html::anchor('tipo_procedimentos/excluir/'.$procedimento->id, 'Excluir', array('class' => 'delete', 'title' => $title));
 				$col[] = $action_links;
 
 				$lines[] = $col;

@@ -39,6 +39,7 @@ class Grupo_acessos_Controller extends Template_Controller {
 		
 		$metodos =  objects::get_controllers_with_methods();
 		
+		
 			//remove os metodos desportegidos
 			//Kohana::config('vigilant.controllers_exception')
 			foreach(Kohana::config('vigilant.controllers_exception') as $metodo_livre){
@@ -53,6 +54,7 @@ class Grupo_acessos_Controller extends Template_Controller {
 		$view->set('metodos', $metodos);
 		
 		$this->template->content= $view;
+		
 		
 	}
 	
