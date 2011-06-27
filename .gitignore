@@ -1,2 +1,3 @@
 _extras/*
-application/logs/*
+application/logs/*.php
+application/cache/*.php
