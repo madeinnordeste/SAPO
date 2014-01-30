@@ -13,3 +13,7 @@ Desenvolvido sob o framework Kohanaphp ( http://www.kohanaphp.com ) que e distri
 
 É distribuido sobre licenca GPL, veja no arquivo ( SAPO_Licence.txt ).
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/madeinnordeste/sapo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
